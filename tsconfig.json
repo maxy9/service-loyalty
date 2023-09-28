@@ -1,0 +1,11 @@
+{
+  "include": ["src/**/*", "test/**/*"],
+  "extends": "@tsconfig/node20/tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "."
+  },
+  "ts-node": {
+    "esm": true
+  }
+}
