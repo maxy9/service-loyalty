@@ -1,8 +1,8 @@
 
 # Run the Service
-`pnpm i`
-`pnpm build`
-`pnpm start`
+1. `pnpm i`
+1. `pnpm build`
+1. `pnpm start`
 
 # Tooling
 ## Package Manager
