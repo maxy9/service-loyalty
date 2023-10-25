@@ -1,10 +1,10 @@
-import f, { type FastifyInstance } from 'fastify'
+import Fastify, { type FastifyInstance } from "fastify";
 import cfg from './config.js'
 import gettingStartedRoutes from './routes/getting-started.js';
 import basicExample from './routes/basic-example.js';
 import tsRest from "./routes/ts-rest.js";
 
-const fastify: FastifyInstance = f({
+const fastify: FastifyInstance = Fastify({
   logger: cfg.logging,
 });
 
