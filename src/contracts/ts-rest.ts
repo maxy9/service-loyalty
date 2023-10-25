@@ -17,7 +17,7 @@ export type NewPost = z.infer<typeof NewPostSchema>
 
 // Contract
 const c = initContract()
-export const contract = c.router({
+export const tsRestApi = c.router({
   createPost: {
     method: "POST",
     path: "/posts",

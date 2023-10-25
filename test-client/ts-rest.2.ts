@@ -1,8 +1,8 @@
 import { initClient } from "@ts-rest/core"
-import { contract } from "../src/contracts/ts-rest.js"
+import { tsRestApi } from "../src/contracts/ts-rest.js"
 
 export default async () => {
-  const client = initClient(contract, {
+  const client = initClient(tsRestApi, {
     baseUrl: "http://localhost:3000",
     baseHeaders: {},
   })

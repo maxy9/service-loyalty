@@ -24,6 +24,7 @@ const port: number = Number(process.env.PORT) || 1443
 const nodeEnv: NodeEnv = (process.env.NODE_ENV as NodeEnv) || "production"
 const logLevel: LogLevel = (process.env.LOG_LEVEL as LogLevel) || "info"
 
+// TODO refactor `transport` to git rid of NODE_ENV and use if(process.stdout.isTTY) instead
 const loggingOptions: LoggingOpts = {
   development: {
     level: logLevel,
