@@ -10,6 +10,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "node dist/src/server.js",
+    "db:dev": "docker compose up -d postgres",
     "build:dev": "tsc -p tsconfig.json --watch -d",
     "start:dev": "node --watch dist/src/server.js",
     "test-client:dev": "node --watch-path=. dist/test-client",
