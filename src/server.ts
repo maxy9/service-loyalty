@@ -1,12 +1,12 @@
-import Fastify, { type FastifyInstance } from "fastify";
+import Fastify, { type FastifyInstance } from "fastify"
 import cfg from './config.js'
-import gettingStartedRoutes from './routes/getting-started.js';
-import basicExample from './routes/basic-example.js';
-import tsRest from "./routes/ts-rest.js";
+import gettingStartedRoutes from './routes/getting-started.js'
+import basicExample from './routes/basic-example.js'
+import tsRest from "./routes/ts-rest.js"
 
 const fastify: FastifyInstance = Fastify({
   logger: cfg.logging,
-});
+})
 
 /*
 Fastify offers a solid encapsulation model, to help you build your application as single and independent services.
@@ -29,16 +29,16 @@ If you want to register a plugin only for a subset of routes, you just have to r
           ...
 */
 
-// fastify.decorate("db", new DbConnection());
-fastify.register(gettingStartedRoutes, { prefix: "getting-started" });
+// fastify.decorate("db", new DbConnection())
+fastify.register(gettingStartedRoutes, { prefix: "getting-started" })
 fastify.register(basicExample, { prefix: 'basic-example' })
-fastify.register(tsRest, { prefix: "ts-rest" });
+fastify.register(tsRest, { prefix: "ts-rest" })
 
 try {
   await fastify.listen({
     port: cfg.port,
     host: '0.0.0.0' // Required for docker; listens on all available IPv4 interfaces
-  });
+  })
   fastify.log.debug(
     {
       configValues: {
@@ -48,7 +48,7 @@ try {
       },
     },
     "Server started with config values"
-  );
+  )
 } catch (err) {
   fastify.log.error(err)
   process.exit(1)

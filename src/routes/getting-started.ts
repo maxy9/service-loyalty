@@ -1,4 +1,4 @@
-import type { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
+import type { FastifyInstance, FastifyReply, FastifyRequest } from "fastify"
 
 export default async function gettingStarted(fastify: FastifyInstance) {
   const opts = {
@@ -26,14 +26,14 @@ export default async function gettingStarted(fastify: FastifyInstance) {
         },
       },
     },
-  };
+  }
   fastify.post(
     "/simple",
     opts,
     async function handler(req: FastifyRequest, _res: FastifyReply) {
-      return { hello: "simple, started world", body: req.body };
+      return { hello: "simple, started world", body: req.body }
     }
-  );
+  )
 
   fastify.route({
     method: "POST",
@@ -65,7 +65,7 @@ export default async function gettingStarted(fastify: FastifyInstance) {
       // auth
     },
     handler: async (req: FastifyRequest, _res: FastifyReply) => {
-      return { hello: "verbose, started world", body: req.body };
+      return { hello: "verbose, started world", body: req.body }
     },
-  });
+  })
 }
