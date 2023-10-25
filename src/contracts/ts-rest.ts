@@ -1,14 +1,22 @@
 import { initContract } from "@ts-rest/core";
 import { z } from "zod";
 
-const c = initContract();
-
+// Schemas
 const PostSchema = z.object({
-  id: z.number(),
-  title: z.number(),
-  body: z.number(),
+  id: z.string(),
+  title: z.string(),
+  body: z.string(),
+});
+const NewPostSchema = PostSchema.omit({
+  id: true,
 });
 
+// Types
+export type Post = z.infer<typeof PostSchema>
+export type NewPost = z.infer<typeof NewPostSchema>;
+
+// Contract
+const c = initContract();
 export const contract = c.router({
   createPost: {
     method: "POST",
@@ -16,10 +24,7 @@ export const contract = c.router({
     responses: {
       201: PostSchema,
     },
-    body: z.object({
-      title: z.string(),
-      body: z.string(),
-    }),
+    body: NewPostSchema,
     summary: "Create a post",
   },
   getPost: {

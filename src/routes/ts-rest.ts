@@ -1,10 +1,10 @@
 import { randomUUID } from 'node:crypto'
 import { initServer } from '@ts-rest/fastify'
 
-import { contract } from '../contracts/ts-rest.js'
+import { contract, Post } from "../contracts/ts-rest.js";
 
 const s = initServer()
-const posts = new Map();
+const posts = new Map<string, Post>();
 posts.set('1', {
   id: '1',
   title: `Post 1`,
@@ -13,7 +13,7 @@ posts.set('1', {
 
 const router = s.router(contract, {
   getPost: async ({ params: { id } }) => {
-    const post = posts.get(id)
+    const post = posts.get(id) ?? null
     console.log(`IN THE GET POSTS; ${id}: ${post}`);
     return {
       status: 200,
@@ -26,15 +26,16 @@ const router = s.router(contract, {
   createPost: async ({ body }) => {
     console.log("IN THE CREATE POSTS");
     const id = randomUUID()
-    posts.set(id, {
+    const post = {
       id,
       title: `${body.title} for id ${id}`,
       body: `${body.body} for id ${id}`,
-    })
+    };
+    posts.set(id, post)
 
     return {
       status: 201,
-      body: posts.get(id)
+      body: post
     }
   }
 })
