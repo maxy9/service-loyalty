@@ -15,24 +15,32 @@ const NewPostSchema = PostSchema.omit({
 export type Post = z.infer<typeof PostSchema>
 export type NewPost = z.infer<typeof NewPostSchema>
 
+// Vars
+export const routePrefix = "/ts-rest"
+
 // Contract
 const c = initContract()
-export const tsRestApi = c.router({
-  createPost: {
-    method: "POST",
-    path: "/posts",
-    responses: {
-      201: PostSchema,
+export const tsRestApi = c.router(
+  {
+    createPost: {
+      method: "POST",
+      path: "/posts",
+      responses: {
+        201: PostSchema,
+      },
+      body: NewPostSchema,
+      summary: "Create a post",
     },
-    body: NewPostSchema,
-    summary: "Create a post",
-  },
-  getPost: {
-    method: "GET",
-    path: `/posts/:id`,
-    responses: {
-      200: PostSchema.nullable(),
+    getPost: {
+      method: "GET",
+      path: `/posts/:id`,
+      responses: {
+        200: PostSchema.nullable(),
+      },
+      summary: "Get a post by id",
     },
-    summary: "Get a post by id",
   },
-})
+  {
+    pathPrefix: routePrefix,
+  }
+)

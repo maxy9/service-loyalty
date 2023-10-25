@@ -19,3 +19,13 @@ Uses pnpm as its package manager.
 
 Uses Fastify as its HTTP Server framework
 
+## API Docs
+
+The server uses the [@fastify/swagger-ui](https://github.com/fastify/fastify-swagger-ui) plugin, which will expose the documentation with the following APIs:
+
+| URL                     | Description                                |
+| ----------------------- | ------------------------------------------ |
+| `'/documentation/json'` | The JSON object representing the API       |
+| `'/documentation/yaml'` | The YAML object representing the API       |
+| `'/documentation/'`     | The swagger UI                             |
+| `'/documentation/*'`    | External files that you may use in `$ref`  |

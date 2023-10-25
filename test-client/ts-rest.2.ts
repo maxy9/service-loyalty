@@ -20,6 +20,6 @@ export default async () => {
     console.log({ a: 2, result: 'success', typeof: typeof body, body })
   } else {
     // body is unknown
-    console.log({ a: 2, result: "failure", typeof: typeof body, body });
+    console.log({ a: 2, result: "failure", typeof: typeof body, body })
   }
 }
