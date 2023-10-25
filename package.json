@@ -12,7 +12,7 @@
     "start": "node dist/src/server.js",
     "build:dev": "tsc -p tsconfig.json --watch -d",
     "start:dev": "node --watch dist/src/server.js",
-    "test-client:dev": "node --watch-path=. dist/test-client/ts-rest.js",
+    "test-client:dev": "node --watch-path=. dist/test-client",
     "test": "jest"
   },
   "keywords": [
