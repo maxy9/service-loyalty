@@ -51,11 +51,11 @@ app.register(basicExample, { prefix: 'basic-example' })
 app.register(tsRest)
 
 // API docs
-console.log(tsRestApiDocument)
-app.register(fastifySwagger, {
-  transformObject: () => tsRestApiDocument,
+app.register(fastifySwagger) // required as a dep for fastifySwaggerUI
+app.register(fastifySwaggerUI, {
+  // override API doc with the @ts-rest/open-api generated doc
+  transformSpecification: () => tsRestApiDocument,
 })
-app.register(fastifySwaggerUI)
 
 try {
   await app.listen({
