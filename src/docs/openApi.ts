@@ -1,7 +1,7 @@
 import { generateOpenApi } from "@ts-rest/open-api"
 import { OpenAPIObject } from "openapi3-ts"
 
-import { tsRestApi, routePrefix } from "../contracts/ts-rest.js"
+import { tsRestApi } from "../contracts/ts-rest.js"
 
 const baseOptions = {
   setOperationId: true,

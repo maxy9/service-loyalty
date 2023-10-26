@@ -16,7 +16,7 @@ export type Post = z.infer<typeof PostSchema>
 export type NewPost = z.infer<typeof NewPostSchema>
 
 // Vars
-export const routePrefix = "/ts-rest"
+const routePrefix = "/ts-rest"
 
 // Contract
 const c = initContract()
